@@ -9,7 +9,12 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
-    "vue": "^2.6.10"
+    "d3": ">= 3.x < 4",
+    "faker": "^4.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "vue": "^2.6.10",
+    "vuera": "^0.2.5"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.1",
