@@ -1,9 +1,5 @@
 <template>
-  <div>
-    <CsOrgChart
-              :tree="tree"
-              lineType="angle"
-    />
+  <div id="org-chart">
   </div>
 </template>
 
@@ -17,10 +13,10 @@
         font-smoothing: antialiased;
         -webkit-font-smoothing: antialiased;
     }
-    #root {
+    #org-chart {
         margin: 0;
         cursor: move;
-        height: 100%;
+        height: 100vh;
         width: 100%;
         background-color:#f7f9fa;
     }
@@ -54,23 +50,26 @@
 </style>
 
 <script>
-  import CsOrgChart from "../OrgChart/src";
+  import init  from '../OrgChart/src/chart';
   import fakeData from '../OrgChart/src/utils/fake-data';
 
   export default {
-    name: 'OrgChart',
-
-    components: {
-      CsOrgChart
-    },
+    name: 'OrgChartTest',
 
     created(){
       this.tree = fakeData();
     },
 
+    mounted(){
+        init({ id: '#org-chart', data: this.tree, ...this.options })
+    },
+
     data(){
       return {
-        tree: null
+        tree: null,
+        options: {
+          lineType: "angle"
+        }
       }
     }
   }
